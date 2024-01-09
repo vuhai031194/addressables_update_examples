@@ -21,11 +21,11 @@ public class AddressableUtils : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _checkUpdateText;
     [SerializeField] private Button spawnBtn1;
     [SerializeField] private Button spawnBtn2;
-    [SerializeField] private Button releaseBtn;
+    [SerializeField] private Button clearCache;
     
     private IEnumerator Start()
     {
-        StartCoroutine(CheckUpdate());
+        // StartCoroutine(CheckUpdate());
         
         AsyncOperationHandle<long> getDownloadSize = Addressables.GetDownloadSizeAsync(PRODUCTS_LABEL);
         yield return getDownloadSize;
@@ -45,10 +45,9 @@ public class AddressableUtils : MonoBehaviour
         
         spawnBtn1.gameObject.SetActive(true);
         spawnBtn2.gameObject.SetActive(true);
-        releaseBtn.gameObject.SetActive(true);
         spawnBtn1.onClick.AddListener(() => SpawnObj(keySpawn1));
         spawnBtn2.onClick.AddListener(() => SpawnObj(keySpawn2));
-        releaseBtn.onClick.AddListener(ReleaseObj);
+        clearCache.onClick.AddListener(ClearCache);
     }
     
     private IEnumerator CheckUpdate()
@@ -91,10 +90,5 @@ public class AddressableUtils : MonoBehaviour
     private void OnLoadDone(AsyncOperationHandle<GameObject> asyncOperationHandle)
     {
         _obj = asyncOperationHandle.Result;
-    }
-
-    public void ReleaseObj()
-    {
-        Addressables.Release(_obj);
     }
 }

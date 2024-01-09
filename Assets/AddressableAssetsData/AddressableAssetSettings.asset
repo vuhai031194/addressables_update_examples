@@ -39,6 +39,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 07e2d51244e21eb44be10e82a013509c, type: 2}
   - {fileID: 11400000, guid: aada673f47a75924991040f531657173, type: 2}
   - {fileID: 11400000, guid: d30bd2df0c32a8f45aa5f7a8b498eab6, type: 2}
+  - {fileID: 11400000, guid: 8a6e76b529f7ac242954fb6f81e9dfa3, type: 2}
+  - {fileID: 11400000, guid: 062591a1891342b42994af6b5e53618e, type: 2}
+  - {fileID: 11400000, guid: 05058b0d6e641b34ebf540068bf2c5e7, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -59,7 +62,7 @@ MonoBehaviour:
       - m_Id: 0a70cba2751cade4e95fe5446c71f0f7
         m_Value: ServerData/[BuildTarget]
       - m_Id: fc6cc5507576e814c879fb8aba1ac0ea
-        m_Value: https://storage.googleapis.com/se-asset-bundle/[BuildTarget]/1.0.1
+        m_Value: https://storage.googleapis.com/se-asset-bundle/[BuildTarget]/1.0.0
     - m_InheritedParent: 
       m_Id: 21e727c48294b2841887e92be8cc71fb
       m_ProfileName: Test
@@ -73,7 +76,7 @@ MonoBehaviour:
       - m_Id: 0a70cba2751cade4e95fe5446c71f0f7
         m_Value: ServerData/[BuildTarget]
       - m_Id: fc6cc5507576e814c879fb8aba1ac0ea
-        m_Value: https://storage.googleapis.com/se-asset-bundle/[BuildTarget]/1.0.2
+        m_Value: https://storage.googleapis.com/se-asset-bundle/[BuildTarget]/1.0.8
     m_ProfileEntryNames:
     - m_Id: 04802c1e7a6a52e4daf176f3c71a15f7
       m_Name: BuildTarget
@@ -95,6 +98,7 @@ MonoBehaviour:
     m_LabelNames:
     - default
     - asset1
+    - remote
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: ca4a3e03bc5dfc54faab064165dd5c97, type: 2}
