@@ -1,94 +1,89 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using TMPro;
+using System.Globalization;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.ResourceManagement.ResourceLocations;
 using UnityEngine.UI;
 
 public class AddressableUtils : MonoBehaviour
 {
     private const string PRODUCTS_LABEL = "asset1";
-    private float _percent = 0f;
-    private GameObject _obj;
+    private float _percent;
+
+    [SerializeField] private GameObject _loading;
+    [SerializeField] private Text _textContent;
+    [SerializeField] private Image _imageContent;
     
-    [SerializeField] private string keySpawn1;
-    [SerializeField] private string keySpawn2;
-    [SerializeField] private TextMeshProUGUI _loadingDisplayText;
-    [SerializeField] private TextMeshProUGUI _checkUpdateText;
-    [SerializeField] private Button spawnBtn1;
-    [SerializeField] private Button spawnBtn2;
-    [SerializeField] private Button clearCache;
-    
-    private IEnumerator Start()
+    [SerializeField] private Button _buttonInit;
+    [SerializeField] private Button _buttonDownload;
+    [SerializeField] private Button _buttonClearCache;
+
+    private float _downloadSizeInMB;
+
+    private void Awake()
     {
-        // StartCoroutine(CheckUpdate());
-        
-        AsyncOperationHandle<long> getDownloadSize = Addressables.GetDownloadSizeAsync(PRODUCTS_LABEL);
-        yield return getDownloadSize;
-        float downloadSize = getDownloadSize.Result / 1024 / 1024;
-        Debug.Log("Download size in MB: " + downloadSize);
-        
-        if (getDownloadSize.Result > 0)
+        this._buttonInit.onClick.AddListener(InitializeAsync);
+        this._buttonDownload.onClick.AddListener(DownloadAsync);
+        this._buttonClearCache.onClick.AddListener(ClearCache);
+    }
+
+
+    private void OnEnable()
+    {
+        this._loading.transform.localScale = new Vector3(0, 1, 1);
+        this._buttonDownload.enabled = false;
+        this._buttonClearCache.enabled = false;
+        this._textContent.text = "Init First";
+    }
+
+    private async void DownloadAsync()
+    {
+        this._buttonDownload.enabled = false;
+        if (this._downloadSizeInMB > 0)
         {
             AsyncOperationHandle downloadDependencies = Addressables.DownloadDependenciesAsync(PRODUCTS_LABEL, true);
             while (!downloadDependencies.IsDone)
             {
                 _percent = downloadDependencies.GetDownloadStatus().Percent;
-                _loadingDisplayText.SetText($"Downloading {downloadSize}mb, {_percent * 100:F2}% completed");
-                yield return null;
+
+                this._textContent.text = $"Downloading {_percent * 100}% ({_downloadSizeInMB * _percent} MB / {_downloadSizeInMB} MB)";
+
+                await UniTask.Yield();
             }
         }
-        
-        spawnBtn1.gameObject.SetActive(true);
-        spawnBtn2.gameObject.SetActive(true);
-        spawnBtn1.onClick.AddListener(() => SpawnObj(keySpawn1));
-        spawnBtn2.onClick.AddListener(() => SpawnObj(keySpawn2));
-        clearCache.onClick.AddListener(ClearCache);
+
+        this._buttonClearCache.enabled = true;
     }
     
-    private IEnumerator CheckUpdate()
+    private void InitializeAsync()
     {
-        var init = Addressables.InitializeAsync();
-
-        yield return(init);
-
-        AsyncOperationHandle <List <string> > checkHandle = Addressables.CheckForCatalogUpdates(false);
-
-        yield return(checkHandle);
-
-        if (checkHandle.Status == AsyncOperationStatus.Succeeded)
+        this._textContent.text = "Initialize Async";
+        Addressables.InitializeAsync().Completed += handle =>
         {
-            List <string> catalogs = checkHandle.Result;
-            if (catalogs != null && catalogs.Count > 0)
+            try
             {
-                Debug.Log("download start");
-                var updateHandle = Addressables.UpdateCatalogs(catalogs, false);
-                yield return(updateHandle);
-
-                Debug.Log("download finish");
-                _loadingDisplayText.SetText($"Check Update");
+                this._textContent.text = "Get Download Size Async";
+                Debug.Log("Addressables.InitializeAsync.Completed:@" + Time.time);
+                Addressables.GetDownloadSizeAsync(PRODUCTS_LABEL).Completed += handle =>
+                {
+                    Debug.Log("Addressables.GetDownloadSizeAsync.Completed:@" + Time.time);
+                    this._downloadSizeInMB = (float)handle.Result / 1024 / 1024;
+                    Debug.Log("GetDownloadSizeAsync: " + handle.Result + " bytes, which is " + this._downloadSizeInMB + " MB");
+                    this._textContent.text = $"Size of download: {this._downloadSizeInMB.ToString(CultureInfo.InvariantCulture)}";
+                    this._buttonInit.enabled = false;
+                    this._buttonDownload.enabled = true;
+                };
             }
-        }
-        Addressables.Release(checkHandle);
-
+            catch (Exception e)
+            {
+                Debug.Log(e);
+            }
+        };
     }
     
     public void ClearCache()
     {
         Addressables.ClearDependencyCacheAsync(PRODUCTS_LABEL);
-    }
-
-    private void SpawnObj(string key)
-    {
-        Addressables.InstantiateAsync(key).Completed += OnLoadDone;
-    }
-
-    private void OnLoadDone(AsyncOperationHandle<GameObject> asyncOperationHandle)
-    {
-        _obj = asyncOperationHandle.Result;
     }
 }
