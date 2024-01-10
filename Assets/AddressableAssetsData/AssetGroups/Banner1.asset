@@ -10,38 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Asset
+  m_Name: Banner1
   m_EditorClassIdentifier: 
-  m_GroupName: Asset
+  m_GroupName: Banner1
   m_Data:
     m_SerializedData: []
   m_GUID: fae17b01a8191e44bb9670447099d715
   m_SerializeEntries:
-  - m_GUID: c39a88cb9c2aea54f905e19b43a835e8
-    m_Address: 9
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - asset1
-  - m_GUID: 3234e84514c513b438af0265b112fcfc
-    m_Address: 8
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - asset1
-  - m_GUID: 2f2a3dc9bc6c46c409e8500e3e9ae2df
-    m_Address: 7
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - asset1
-  - m_GUID: bebc7724fd28ff04eb2f8fa2a508b96c
-    m_Address: 6
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - asset1
-  - m_GUID: 582832e9aea20684b99ff2650e19f375
-    m_Address: 5
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - asset1
   - m_GUID: 68ac02fbd5af30f4d977b7fe5e77154a
     m_Address: 4
     m_ReadOnly: 0

@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Banner2
+  m_EditorClassIdentifier: 
+  m_GroupName: Banner2
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 72377160fe4b2dd438266ec972a3b3db
+  m_SerializeEntries:
+  - m_GUID: c39a88cb9c2aea54f905e19b43a835e8
+    m_Address: 9
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - asset1
+  - m_GUID: 3234e84514c513b438af0265b112fcfc
+    m_Address: 8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - asset1
+  - m_GUID: 2f2a3dc9bc6c46c409e8500e3e9ae2df
+    m_Address: 7
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - asset1
+  - m_GUID: bebc7724fd28ff04eb2f8fa2a508b96c
+    m_Address: 6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - asset1
+  - m_GUID: 582832e9aea20684b99ff2650e19f375
+    m_Address: 5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - asset1
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 90684b95409e62748b3365fbe585cf80, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 0759c5a4e82ddd34c944f5d59694e9af, type: 2}
+    - {fileID: 11400000, guid: 2aff711aa4473f44d92ada21f7650c26, type: 2}

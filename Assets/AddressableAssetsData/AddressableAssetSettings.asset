@@ -40,8 +40,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aada673f47a75924991040f531657173, type: 2}
   - {fileID: 11400000, guid: d30bd2df0c32a8f45aa5f7a8b498eab6, type: 2}
   - {fileID: 11400000, guid: 8a6e76b529f7ac242954fb6f81e9dfa3, type: 2}
-  - {fileID: 11400000, guid: 062591a1891342b42994af6b5e53618e, type: 2}
-  - {fileID: 11400000, guid: 05058b0d6e641b34ebf540068bf2c5e7, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -62,10 +60,10 @@ MonoBehaviour:
       - m_Id: 0a70cba2751cade4e95fe5446c71f0f7
         m_Value: ServerData/[BuildTarget]
       - m_Id: fc6cc5507576e814c879fb8aba1ac0ea
-        m_Value: https://storage.googleapis.com/se-asset-bundle/[BuildTarget]/1.0.0
+        m_Value: https://storage.googleapis.com/se-asset-bundle/[BuildTarget]/1.0.1
     - m_InheritedParent: 
       m_Id: 21e727c48294b2841887e92be8cc71fb
-      m_ProfileName: Test
+      m_ProfileName: Develop
       m_Values:
       - m_Id: 04802c1e7a6a52e4daf176f3c71a15f7
         m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
@@ -74,9 +72,37 @@ MonoBehaviour:
       - m_Id: c9c71752731ed1f449c1f990947fbf6e
         m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
       - m_Id: 0a70cba2751cade4e95fe5446c71f0f7
-        m_Value: ServerData/[BuildTarget]
+        m_Value: ServerData/[BuildTarget]/Develop
       - m_Id: fc6cc5507576e814c879fb8aba1ac0ea
-        m_Value: https://storage.googleapis.com/se-asset-bundle/[BuildTarget]/1.0.8
+        m_Value: https://storage.googleapis.com/se-asset-bundle/[BuildTarget]/Develop
+    - m_InheritedParent: 
+      m_Id: 522ac6ba7145704499e27738f639f948
+      m_ProfileName: Review
+      m_Values:
+      - m_Id: 04802c1e7a6a52e4daf176f3c71a15f7
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: aeb35b62e27d146468fb64448cc13704
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: c9c71752731ed1f449c1f990947fbf6e
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: 0a70cba2751cade4e95fe5446c71f0f7
+        m_Value: ServerData/[BuildTarget]/Review
+      - m_Id: fc6cc5507576e814c879fb8aba1ac0ea
+        m_Value: https://storage.googleapis.com/se-asset-bundle/[BuildTarget]/Review
+    - m_InheritedParent: 
+      m_Id: 30d1f74fee7377945bbec6a8fd3e849d
+      m_ProfileName: Production
+      m_Values:
+      - m_Id: 04802c1e7a6a52e4daf176f3c71a15f7
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: aeb35b62e27d146468fb64448cc13704
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: c9c71752731ed1f449c1f990947fbf6e
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: 0a70cba2751cade4e95fe5446c71f0f7
+        m_Value: ServerData/[BuildTarget]/Production
+      - m_Id: fc6cc5507576e814c879fb8aba1ac0ea
+        m_Value: https://storage.googleapis.com/se-asset-bundle/[BuildTarget]/Production
     m_ProfileEntryNames:
     - m_Id: 04802c1e7a6a52e4daf176f3c71a15f7
       m_Name: BuildTarget
