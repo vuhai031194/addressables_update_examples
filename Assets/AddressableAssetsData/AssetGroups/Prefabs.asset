@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Banner1
+  m_Name: Prefabs
   m_EditorClassIdentifier: 
-  m_GroupName: Banner1
+  m_GroupName: Prefabs
   m_Data:
     m_SerializedData: []
-  m_GUID: fae17b01a8191e44bb9670447099d715
+  m_GUID: c9430a0c20118f149b811d8e06f2aae4
   m_SerializeEntries:
-  - m_GUID: 24bcb299dcade7b4aab8436e3c24bad2
-    m_Address: 1
+  - m_GUID: 843700df1a0dd0b46a68bfe4ae5dd283
+    m_Address: Frame
     m_ReadOnly: 0
     m_SerializedLabels:
     - default
@@ -27,5 +27,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 90684b95409e62748b3365fbe585cf80, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 3d7090e224452de4bb889d4811f38e42, type: 2}
-    - {fileID: 11400000, guid: 01b4a56909cea19478b785fe77187ea9, type: 2}
+    - {fileID: 11400000, guid: a300b1ec981f74f46aca179027515cdf, type: 2}
+    - {fileID: 11400000, guid: e84f511f13c168e4e8d9e2fd50349a1d, type: 2}
