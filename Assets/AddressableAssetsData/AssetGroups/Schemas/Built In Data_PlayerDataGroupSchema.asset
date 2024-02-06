@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Built In Data_PlayerDataGroupSchema
   m_EditorClassIdentifier: 
   m_Group: {fileID: 11400000, guid: 07e2d51244e21eb44be10e82a013509c, type: 2}
-  m_IncludeResourcesFolders: 1
-  m_IncludeBuildSettingsScenes: 1
+  m_IncludeResourcesFolders: 0
+  m_IncludeBuildSettingsScenes: 0

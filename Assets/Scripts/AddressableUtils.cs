@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class AddressableUtils : MonoBehaviour
     private const string BUNDLE_PLATFORM_PATH = "https://storage.googleapis.com/summoner_era/examples/{0}/{1}.bundle";
     
     private float _percent;
+    private int _catalogPatch;
 
     [SerializeField] private GameObject _loading;
     [SerializeField] private Text _textContent;
@@ -42,9 +44,12 @@ public class AddressableUtils : MonoBehaviour
         this._inputField.onValueChanged.AddListener(OnCataLogChange);
     }
 
-    private  void OnCataLogChange(string fileName)
+    private  void OnCataLogChange(string catalogPatch)
     {
-        IDTransformer.CatalogFile = fileName;
+        if (int.TryParse(catalogPatch, out _catalogPatch) == false)
+        {
+            throw new Exception("input is not valid: need an integer");
+        }
     }
     
     private void OnEnable()
@@ -61,7 +66,7 @@ public class AddressableUtils : MonoBehaviour
         
         try
         {
-            string json = await DownloadJsonAsync(string.Format(CATALOG_PATCH_PATH, 1));
+            string json = await DownloadJsonAsync(string.Format(CATALOG_PATCH_PATH, this._catalogPatch));
             Debug.Log("Downloaded JSON: " + json);
             // You can now process the JSON string as needed
         }
@@ -187,5 +192,19 @@ public class AddressableUtils : MonoBehaviour
             this._imageIndex = 1;
             Next();
         }
+    }
+}
+
+public class BundleInformation
+{
+    public int rid;
+    public string name;
+    public long size;
+    public List<int> dependencyRids = new();
+    public List<string> assets = new();
+
+    public override string ToString()
+    {
+        return $"Rid {rid}, Bundle Name: {name}, Size: {size}, Dependencies: {dependencyRids.Count}";
     }
 }
